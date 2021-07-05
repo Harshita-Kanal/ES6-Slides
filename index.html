@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>ES6</title>
+
+  <meta name="description" content="">
+  <meta name="author" content="Matthew Turnbull">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/turnbullm.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section data-background="#D4F1FF" id="intro">
+  <div class="has-dark-background">
+    <h1>ES6</h1>
+    <p style="font-size: 0.6em; margin-top: 60px;">(press spacebar to continue)</p>
+  </div>
+</section>
+
+
+<section data-background="#AFDCFB" id="ecma-intro">
+  <img src="images/ecma-logo.png" />
+  <h2 class="fragment">ECMAScript</h2>
+
+  <aside class="notes">
+    <ul>
+      <li>ES6 Follows standards setup by ECMA</li>
+    </ul>
+  </aside>
+</section>
+
+<section data-background="#AFDCFB" id="ecma-website">
+  <h2>Let's check their website...</h2>
+  <img src="images/ecma-website.png" class="fragment" />
+</section>
+
+<section data-background="#93C0E7" id="ecma-overview">
+  <img src="images/ecma-logo.png" />
+  <ul>
+    <li class="fragment">Organisation</li>
+    <li class="fragment">1961</li>
+    <li class="fragment">
+      Not for profit
+    </li>
+  </ul>
+</section>
+
+<section data-background="#93C0E7" id="ecma-standards">
+  <img src="images/ecma-logo.png" style="width: 50%" />
+  <div style="width: 100%; text-align: center; margin-bottom: 20px;">Developed many standards, including;</div>
+  <ul>
+    <li class="fragment">CD-ROM file structure</li>
+    <li class="fragment">C#</li>
+    <li class="fragment">CLI</li>
+    <li class="fragment">Open Office XML</li>
+    <li class="fragment">JSON</li>
+    <li class="fragment">Dart</li>
+    <li class="fragment">And something they call...</li>
+  </ul>
+</section>
+
+<section data-background="#D4F1FF" data-transition="fade" id="ecma-answer-2">
+  <h3>ECMAScript</h3>
+  <ul>
+    <li class="fragment">Generic scripting language</li>
+    <li class="fragment"><em>Any</em> language can follow ECMAScript standards</li>
+    <li class="fragment">
+      Including;
+      <ul>
+        <li class="fragment">Actionscript</li>
+        <li class="fragment">And...<strong class="fragment">Javascript!</strong></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section data-background="#AFDCFB" id="es5">
+  <h3>ECMAScript Version 5</h3>
+  <p class="fragment">Finalized in 2009</p>
+  <div class="fragment">
+    <pre class="highlight javascript" contenteditable>Object.keys()
+Date.toISOString()
+Date.now()
+JSON.parse()
+JSON.stringify()
+String.trim()
+Array.isArray()
+Array.indexOf()
+Array.forEach()
+Array.map()
+Array.filter()</pre>
+  </div>
+</section>
+
+
+<section data-background="#D4F1FF" id="fast-forward-frameworks">
+  <div style="width: 100%; height: 1000px; position: relative;"></div>
+  <img src="images/angular.png" class="fragment" style="border: 0; position: absolute; top: -50px; left: 80px; transform: scale(0.5)" />
+  <img src="images/node-js.png" class="fragment" style="border: 0; position: absolute; top: -30px; right: 0; transform: scale(0.6)" />
+  <img src="images/backbone.png" class="fragment" style="border: 0; position: absolute; top: 200px; left: 50px; transform: scale(0.6)" />
+  <img src="images/ember.png" class="fragment" style="border: 0; position: absolute; top: 300px; left: 0; transform: scale(0.5)" />
+  <img src="images/meteor.png" class="fragment" style="border: 0; position: absolute; top: 230px; left: 350px; transform: scale(0.4)" />
+  <img src="images/react.png" class="fragment" style="border: 0; position: absolute; top: 500px; left: 200px; transform: scale(0.6)" />
+</section>
+
+
+<section data-background="#C7E3EF" id="es6-names">
+  <h2>ECMAScript Version 6</h2>
+  <p>Also known as...</p>
+  <ul>
+    <li class="fragment">ES2015 <span class="fragment" style="font-size: 60%">(official name)</span></li>
+    <li class="fragment">ES6</li>
+    <li class="fragment">Harmony</li>
+    <li class="fragment">es-next</li>
+  </ul>
+</section>
+
+
+<section data-background="#93C0E7" id="preso-intro">
+  <h2>What you're about to learn</h2>
+  <ul>
+    <li class="fragment">
+      New features of ES6
+        <ul>
+          <li class="fragment">Code examples</li>
+          <li class="fragment">Best practises</li>
+        </ul>
+    </li>
+    <li class="fragment">
+      How do start coding ES6 today
+      <ul>
+        <li class="fragment">Using a transpiler</li>
+        <li class="fragment">Bundling modules</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+<section data-background="#93C0E7" id="why-intro">
+  <h1>7 reasons</h1>
+  <br />
+  <h3>To start using ES6</h3>
+  <h3>right now</h3>
+</section>
+
+<section data-background="#D4F1FF" id="why-standard">
+  <h2>1. It's a standard</h2>
+  <p><img src="images/approved.jpg" style="width: 30%; border: 0;" /></p>
+  <ul class="space-m">
+    <li class="fragment">It's <em>not</em> an experimental new framework</li>
+    <li class="fragment">It's <em>not</em> going to disappear</li>
+  </ul>
+  <ul class="space-m">
+    <li class="fragment">It's <strong>here to stay</strong></li>
+    <li class="fragment"><strong>This</strong> is how you write Javascript now, starting <strong>now</strong>!</li>
+  </ul>
+</section>
+
+<section data-background="#AFDCFB" id="why-amazing">
+  <h2>2. Amazing new stuff</h2>
+  <ul>
+    <li class="fragment">Classes</li>
+    <li class="fragment">Default parameters</li>
+    <li class="fragment">Constants</li>
+    <li class="fragment">Modules</li>
+    <li class="fragment">Promises</li>
+    <li class="fragment">Template literals</li>
+    <li class="fragment">Sets</li>
+    <li class="fragment">Maps</li>
+    <li class="fragment">...MORE!</li>
+  </ul>
+</section>
+
+<section data-background="#93C0E7" data-transition="fade" id="why-one-way">
+  <h2>3. One standard way</h2>
+  <br />
+  <div class="tiles">
+    <div class="tile">
+      <ul>
+        <li class="fragment">
+          Who's used a javascript library for <strong>promises</strong>?
+          <br /><br />
+          <ul>
+            <li class="fragment">Q</li>
+            <li class="fragment">Bluebird</li>
+            <li class="fragment">jQuery deferred</li>
+            <li style="visibility: hidden">ES6 Promises</li>
+            <li style="visibility: hidden"><strong>One standard way</strong>!</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="tile" style="visibility: hidden">
+      <ul>
+        <li>Less to memorise & learn</li>
+        <li>Easier to jump between projects</li>
+        <li>
+          Implemented in browsers
+          <ul>
+            <li>Optimized</li>
+            <li>Less bloated 3rd party libraries</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section data-background="#93C0E7" data-transition="fade" id="why-one-way-2">
+  <h2>3. One standard way</h2>
+  <br />
+  <div class="tiles">
+    <div class="tile">
+      <ul>
+        <li>
+          Who's used a javascript library for <strong>promises</strong>?
+          <br /><br />
+          <ul>
+            <li class="strike">Q</li>
+            <li class="strike">Bluebird</li>
+            <li class="strike">jQuery deferred</li>
+            <li class="fragment">ES6 Promises</li>
+            <li class="fragment"><strong>One standard way</strong>!</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="tile">
+      <ul>
+        <li class="fragment">Less to memorise & learn</li>
+        <li class="fragment">Easier to jump between projects</li>
+        <li class="fragment">
+          Implemented in browsers
+          <ul>
+            <li class="fragment">Optimized</li>
+            <li class="fragment">Less bloated 3rd party libraries</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section data-background="#D4F1FF" id="why-left-behind">
+  <h2>4. Don't get left behind</h2>
+  <ul class="space-m">
+    <li class="fragment">ES7 / ES2016 will be released <strong>next year!</strong></li>
+    <li class="fragment">Javascript is <strong>evolving quickly</strong></li>
+  </ul>
+  <div class="tiles">
+    <div class="fragment tile" style="padding: 25px">
+      <h4>Today</h4>
+      <ul>
+        <li class="fragment space-m">We use <em>ES5</em> features without thinking</li>
+        <li class="fragment space-m">We start to use new <em>ES6</em> features</li>
+      </ul>
+    </div>
+    <div class="fragment tile" style="padding: 25px;">
+      <h4>Soon</h4>
+      <ul>
+        <li class="fragment space-m">We use <em>ES6</em> features without thinking</li>
+        <li class="fragment space-m">We start to use new <em>ES7</em> features</li>
+      </ul>
+    </div>
+  </div>
+  <p class="fragment space-m">Start using it <strong>now</strong>, or be <strong>left behind</strong>!</p>
+</section>
+
+<section data-background="#AFDCFB" id="why-frameworks">
+  <h2>5. Frameworks</h2>
+  <ul>
+    <li class="fragment">Angular 2.0</li>
+    <li class="fragment">React Native</li>
+    <li class="fragment">Ember.js</li>
+  </ul>
+  <p class="fragment">These are all <strong>popular</strong> and <strong>influential</strong> frameworks</p>
+  <p class="fragment">They are all using ES6 <strong>now</strong>!</p>
+</section>
+
+<section data-background="#93C0E7" id="why-clean">
+  <h2>6. Cleaner code</h2>
+  <ul>
+    <li class="fragment">Easier to read</li>
+    <li class="fragment">Easier to use</li>
+    <li class="fragment">Easier to maintain</li>
+    <li class="fragment">You'll see soon <span class="fragment">:)</span></li>
+  </ul>
+</section>
+
+<section data-background="#D4F1FF" id="why-awesome">
+  <h2>7. It's AWESOME!</h2>
+  <ul>
+    <li class="fragment">Javascript is <strong>maturing</strong></li>
+    <li class="fragment">Javascript is becoming <strong>more powerful</strong></li>
+    <li class="fragment">Javascript is <strong>catching up</strong> to other languages</li>
+    <li class="fragment">These are <strong>exciting times</strong>!</li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li>Coffeescript, Typescript</li>
+    </ul>
+  </aside>
+</section>
+
+
+<section data-background="#D4F1FF" id="browser-support">
+  <h2>ES6 Browser Support</h2>
+  <p>November 2019</p>
+  <table>
+    <tr>
+      <th>IE10</th>
+      <td>7%</td>
+    </tr>
+    <tr>
+      <th>Safari 6</th>
+      <td>12%</td>
+    </tr>
+    <tr>
+      <th>IE11</th>
+      <td>16%</td>
+    </tr>
+    <tr>
+      <th>Safari 7 & 8</th>
+      <td>21%</td>
+    </tr>
+    <tr>
+      <th>Safari 9</th>
+      <td>54%</td>
+    </tr>
+    <tr>
+      <th>Chrome</th>
+      <td>65%</td>
+    </tr>
+    <tr>
+      <th>Firefox</th>
+      <td>74%</td>
+    </tr>
+    <tr>
+      <th>IE Edge</th>
+      <td>84%</td>
+    </tr>
+  </table>
+</section>
+
+
+<section data-background="#93C0E7" id="babel">
+  <img src="images/babel.png" />
+  <ul>
+    <li class="fragment">Transpiler</li>
+    <li class="fragment">Converts ES6 to ES5</li>
+  </ul>
+</section>
+
+<section data-background="#D4F1FF" id="babel-demo">
+  <div style="display: flex; flex-direction: column; height: 100px; position: absolute; top: -250px;">
+    <div class="fragment">
+      <pre class="highlight javascript full" contenteditable style="width: 25%; margin: 0 auto">
+fancyES6Code();</pre>
+    </div>
+    <div class="fragment">
+      <img src="images/arrow-down.png" style="border: 0; width: 10%; box-shadow: none" />
+    </div>
+    <div class="fragment">
+      <img src="images/babel.png" style="width: 20%" />
+    </div>
+    <div class="fragment">
+      <img src="images/arrow-down.png" style="border: 0; width: 10%; box-shadow: none" />
+    </div>
+    <div class="fragment">
+      <pre class="highlight javascript full" contenteditable style="width: 25%; margin: 0 auto">
+regularES5Code();</pre>
+    </div>
+  </div>
+</section>
+
+<section data-background="#D4F1FF" id="babel-demo-sass">
+  <h2>&nbsp;</h2>
+  <div style="display: flex; flex-direction: column; height: 120px; position: absolute; top: -250px; width: 100%">
+    <div class="fragment">
+      <pre class="highlight javascript full" contenteditable style="width: 25%; margin: 0 auto">
+fancySassCode</pre>
+    </div>
+    <div class="fragment">
+      <img src="images/arrow-down.png" style="border: 0; width: 10%; box-shadow: none" />
+    </div>
+    <div class="fragment">
+      <img src="images/sass.png" style="width: 20%; border: 0; box-shadow: none" />
+    </div>
+    <div class="fragment">
+      <img src="images/arrow-down.png" style="border: 0; width: 10%; box-shadow: none" />
+    </div>
+    <div class="fragment">
+      <pre class="highlight javascript full" contenteditable style="width: 25%; margin: 0 auto">
+regularCssCode</pre>
+    </div>
+  </div>
+</section>
+
+<section data-background="#D4F1FF" id="es6-intro">
+  <h2>Let's learn ES6</h2> 
+</section>
+
+
+<section data-background="#D4F1FF" data-transition="fade" id="let-intro">
+  <pre class="fragment highlight javascript" contenteditable>
+var myBestFriend = 'Barry';
+
+<span class="fragment">if (true) {
+  var myBestFriend = 'Anthony';
+}</span>
+
+<span class="fragment">console.log( myBestFriend ); // ???</span></pre>
+  <div>
+    <img src="images/anteater.png" class="inline" width="100" style="position: relative; top: 45px; left: -10px" />
+    <span class="fragment">What is logged to the console?</span>
+  </div>
+</section>
+
+<section data-background="#D4F1FF" data-transition="fade" id="let-intro-answer">
+  <pre class="highlight javascript" contenteditable>
+var myBestFriend = 'Barry';
+
+if (true) {
+  var myBestFriend = 'Anthony';
+}
+
+console.log( myBestFriend ); // Anthony</pre>
+  <div style="visibility: hidden">
+    <img src="images/anteater.png" class="inline" width="100" style="position: relative; top: 45px; left: -10px" />
+    What is logged to the console?
+  </div>
+</section>
+
+<section data-background="#D4F1FF" id="let-intro-2">
+  <pre class="highlight javascript" contenteditable>
+var numbers = [1, 5, 10];
+
+// Add numbers together
+
+<span class="fragment">var result = 0;</span>
+
+<span class="fragment">for (var i = 0; i < numbers.length; i++) {
+  <span class="fragment">var number = numbers[i];</span>
+  <span class="fragment">result += number;</span>
+}</span>
+
+<span class="fragment">console.log( result );</span><span class="fragment"> // 16</span>
+<span class="fragment">console.log( i );</span><span class="fragment"> // 3</span>
+<span class="fragment">console.log( number );</span><span class="fragment"> // 10</span></pre>
+  <ul>
+    <li class="fragment">Var has a large scope</li>
+    <li class="fragment">Often an unintended side-effect</li>
+    <li class="fragment">Can produce strange bugs</li>
+  </ul>
+</section>
+
+<section data-background="#AFDCFB" id="let">
+  <h2><em>#1.</em> <span class="fragment">Let keyword</span></h2>
+  <p class="fragment">Limits variable to block scope</p>
+
+  <pre class="fragment highlight javascript" contenteditable>
+let myBestFriend = 'Barry';
+
+if (true) {
+  let myBestFriend = 'Anthony';
+  <span class="fragment">console.log( myBestFriend );</span> <span class="fragment">// Anthony</span>
+}
+
+<span class="fragment">console.log( myBestFriend );</span> <span class="fragment">// Barry</span></pre>
+</section>
+
+<section data-background="#AFDCFB" id="let-2">
+  <pre class="highlight javascript" contenteditable>
+let numbers = [1, 5, 10];
+<span class="fragment">let result = 0;</span>
+<span class="fragment">for (let i = 0; i < numbers.length; i++) {
+  <span class="fragment">let number = number[i];</span>
+  <span class="fragment">result += number;</span>
+}</span>
+<span class="fragment">console.log( result );</span><span class="fragment"> // 16</span>
+<span class="fragment">console.log( i );</span><span class="fragment"> // undefined</span>
+<span class="fragment">console.log( number );</span><span class="fragment"> // undefined</span></pre>
+  <p class="fragment">This is how most would expect <strong>var</strong> to behave</p>
+  <img src="images/best-practise-bear.png" class="fragment inline" style="position: absolute; left: 22px;" />
+  <p class="fragment" style="text-align: left; margin-left: 150px; margin-top: 35px">Use <strong>let</strong> instead of <strong>var</strong></p>
+  <p class="fragment" style="text-align: left; margin-left: 250px; margin-top: -20px; font-size: 80%">(unless you <em>really</em> need <strong>var</strong> scoping)</p>
+</section>
+
+<section data-background="#AFDCFB" id="constants">
+  <h2><em>#2.</em> Constant</h2>
+  <p class="fragment">Value that cannot be altered</p>
+  <pre class="highlight javascript fragment" contenteditable>
+const myConstant = 'never changes';
+
+<span class="fragment">myConstant = 'can I change it?';</span><span class="fragment"> // NO!</span></pre>
+  <img src="images/best-practise-bear.png" class="fragment inline" style="position: absolute; left: 22px;" />
+  <p class="fragment" style="text-align: left; margin-left: 150px; margin-top: 35px">Use <strong>const</strong> instead of <strong>let</strong></p>
+  <p class="fragment" style="text-align: left; margin-left: 150px; margin-top: -20px;">Guarantees references won't be overridden</p>
+  <p class="fragment" style="text-align: left; margin-left: 200px; margin-top: -10px; font-size: 90%">If you need references overridden, use <strong>let</strong></p>
+</section>
+
+<section data-background="#93C0E7" data-transition="fade" id="string-features">
+  <h2>New string functions</h2>
+  <h4 class="fragment"><em>#3.</em> String.startsWith()</h4>
+  <pre class="fragment highlight javascript" contenteditable>
+const testString = 'anthony';</pre>
+  <pre class="fragment highlight javascript" contenteditable>
+<span class="fragment">testString.startsWith('a');<span class="fragment"> // true</span></span>
+<span class="fragment">testString.startsWith('ant');<span class="fragment"> // true</span></span>
+
+<span class="fragment">// Second parameter: position to begin searching</span>
+
+<span class="fragment">testString.startsWith('thon', 2);<span class="fragment"> // true</span></span></pre>
+</section>
+
+<section data-background="#93C0E7" data-transition="fade" id="string-features-2">
+  <h2>New string functions</h2>
+  <h4 class="fragment"><em>#4.</em> String.includes()</h4>
+  <pre class="fragment highlight javascript" contenteditable>
+const testString = 'anthony';</pre>
+  <pre class="fragment highlight javascript" contenteditable>
+<span class="fragment">testString.includes('tho'); <span class="fragment">// true</span></span>
+
+<span class="fragment">// Second parameter: position to begin searching</span>
+
+<span class="fragment">testString.includes('ant', 1); <span class="fragment">// false</span></span></pre>
+</section>
+
+<section data-background="#93C0E7" data-transition="fade" id="string-features-3">
+  <h2>New string functions</h2>
+  <h4 class="fragment"><em>#5.</em> String.endsWith()</h4>
+  <pre class="fragment highlight javascript" contenteditable>
+const testString = 'anthony';</pre>
+  <pre class="fragment highlight javascript" contenteditable>
+<span class="fragment">testString.endsWith('ony'); // true</span>
+
+<span class="fragment">// Second parameter: clip string to this length</span>
+
+<span class="fragment">testString.endsWith('hon', 1);<span class="fragment"> // false</span></span>
+<span class="fragment">testString.endsWith('a', 1);<span class="fragment"> // true</span></span>
+<span class="fragment">testString.endsWith('hon', testString.length - 1);<span class="fragment"> // true</span></span></pre>
+</section>
+
+<section data-background="#AFDCFB" id="array-features">
+  <h2>New array functions</h2>
+  <ul>
+    <li class="fragment"><em>#6.</em> Array.find()</li>
+    <li class="fragment"><em>#7.</em> Array.findIndex()</li>
+  </ul>
+  <pre class="fragment highlight javascript" contenteditable style="font-size: 50%">
+const friends = [
+  <span class="fragment">{
+    name: 'Barry',
+    species: 'Bear'
+  },</span>
+  <span class="fragment">{
+    name: 'Anthony',
+    species: 'Anteater'
+  }</span>
+];
+
+<span class="fragment">const myBestFriend = </span><span class="fragment">friends.find(</span><span class="fragment">function(friend) {
+  <span class="fragment">return friend.name === 'Barry';</span>
+});</span>
+<span class="fragment">console.log( myBestFriend );</span><span class="fragment"> // { name: 'Barry', species: 'Bear' }</span>
+
+<span class="fragment">const myBestFriendIndex = friends.findIndex(function(friend) {
+  return friend.name === 'Barry';
+});</span>
+<span class="fragment">console.log( myBestFriendIndex );</span><span class="fragment"> // 0</span></pre>
+</section>
+
+<section data-background="#D4F1FF" id="array-from">
+  <h2><em>#8.</em> Array.from()</h2>
+  <p class="fragment">Converts objects to an array</p>
+  <pre class="fragment highlight javascript" contenteditable>
+const myArray = Array.from(notAnArray);</pre>
+  <p class="fragment" style="text-align: left">
+    Works with either;
+    <ul style="width: 100%">
+      <li class="fragment" style="font-size: 90%">Objects that are <strong>iterable</strong><span style="font-size: 70%"> (can be looped)</span></li></li>
+      <li class="fragment" style="font-size: 90%">Objects with a <strong>length</strong> property, and <strong>indexed elements</strong></li>
+    </ul>
+  </p>
+  <pre class="fragment highlight javascript" contenteditable>
+Array.from(document.querySelectorAll('img'));
+<span class="fragment">Array.from(jQuery('img'));</span>
+<span class="fragment">Array.from("test"); // ["t", "e", "s", "t"]</span></pre>
+</section>
+
+<section data-background="#93C0E7" id="array-spread-es5">
+  <pre class="fragment highlight javascript" contenteditable>
+const sentence = joinWords('I', 'love', 'Barry');</pre>
+  <div style="position: relative; top: -35px;">
+    <img src="images/anteater.png" class="inline" width="100" style="position: relative; top: 45px; left: -10px" />
+    <span class="fragment">Create the <strong>joinWords</strong> function</span>
+  </div>
+  <pre class="fragment highlight javascript" contenteditable>
+function joinWords(word1, word2, word3) {
+  // Join the words and return them
+}</pre>
+  <pre class="fragment highlight javascript" contenteditable>
+function joinWords() {
+  const words = Array.prototype.slice.call(arguments);
+  // Join the words and return them
+}</pre>
+  <div class="fragment" style="position: relative; top: -50px;">
+    <img src="images/best-practise-bear.png" class="inline" width="100" style="position: relative; top: 45px; left: -10px" />
+    Use spread!
+  </div>
+</section>
+
+
+<section data-background="#93C0E7" id="object-shorthand">
+  <h2>Object shorthand</h2>
+  <pre class="fragment highlight javascript" contenteditable>
+function getPosition(something) {
+  <span class="fragment">const x, y, z;</span>
+
+  <span class="fragment">// Do some calculation magic</span>
+  <span class="fragment">// Populate x, y, z constants</span>
+
+  <span class="fragment">// ES5
+  return {
+    x: x,
+    y: y,
+    z: z
+  };</span>
+
+  <span class="fragment current-visible">// ES6
+  return {
+    x,
+    y,
+    z
+  };</span>
+
+  <span class="fragment">// ES6
+  return { x, y, z };</span>
+}</pre>
+</section>
+
+<section data-background="#D4F1FF" id="template-literals">
+  <h2>Template literals</h2>
+  <pre class="highlight javascript" contenteditable>
+const name = 'Bob';
+const activity = 'running';
+const place = 'library';</pre>
+
+  <pre class="fragment highlight javascript" contenteditable>
+// ES5
+const sentence = name + ' is ' + activity + ' to the ' + place;</pre>
+  <pre class="fragment highlight javascript" contenteditable>
+// ES6
+const sentence = `${name} is ${activity} to the ${place}`;</pre>
+</section>
+
+<section data-background="#D4F1FF" id="template-literals-long">
+  <pre class="highlight javascript" contenteditable>
+// ES5
+
+const story = '"My name is ' + name + '" said ' + name + '.\n'
+  + '"I\'m ' + activity + ' to the ' + place + '", he continued.\n'
+  + 'Then ' + name + ' went ' + activity + ' to the ' + place + '.';</pre>
+  <pre class="fragment highlight javascript" contenteditable>
+// ES6
+
+const story = `"My name is ${name}" said ${name}.
+"I'm ${activity} to the ${place}", he continued.
+Then, ${name} went ${activity} to the ${place}.`;</pre>
+  <aside class="notes">
+    <ul>
+      <li>Backticks</li>
+      <li>New lines</li>
+      <li>Quotes and double quotes</li>
+      <li>Escape character in I\'m</li>
+    </ul>
+  </aside>
+</section>
+
+
+<section data-background="#AFDCFB" id="sets">
+  <h2>Sets</h2>
+  <div class="fragment">
+    <p>A new type of object</p>
+    <pre class="highlight javascript" contenteditable>
+const mySet = new Set();</pre>
+  </div>
+  <p class="fragment">Store unique values of any type</p>
+  <pre class="fragment highlight javascript" contenteditable>
+mySet.add('test');
+<span class="fragment">mySet.add({ testObject: true });</span>
+</pre>
+  <p class="fragment">Similar to an array, but easier to use:</p>
+  <pre class="fragment highlight javascript" contenteditable style="font-size: 48%">
+mySet.has('test'); // true
+<span class="fragment">mySet.delete('test');</span>
+<span class="fragment">mySet.clear();</span>
+<span class="fragment">mySet.size;</span>
+<span class="fragment">mySet.keys();</span>
+<span class="fragment">mySet.values();</span>
+<span class="fragment">mySet.entries();</span>
+<span class="fragment">mySet.forEach();</span></pre>
+</section>
+
+
+<section data-background="#D4F1FF" id="iterators-es5-1">
+  <pre class="highlight javascript" contenteditable>
+for (var index = 0; index < myArray.length; index++) {
+  var value = myArray[index];
+  // ...
+}</pre>
+  <ul>
+    <li class="fragment">A lot of code</li>
+  </ul>
+</section>
+
+<section data-background="#D4F1FF" id="iterators-es5-2">
+  <pre class="highlight javascript" contenteditable>
+myArray.forEach(function(value, index) {
+  // ...
+});</pre>
+  <ul>
+    <li class="fragment">Can't use 'break' or 'continue' keywords</li>
+    <li class="fragment">New scope</li>
+  </ul>
+</section>
+
+<section data-background="#D4F1FF" id="iterators-es5-3">
+  <pre class="highlight javascript" contenteditable>
+for (var index in myArray) {
+  var value = myArray[index];
+  // ...
+}</pre>
+  <ul>
+    <li class="fragment">Built for looping over object keys only</li>
+    <li class="fragment">Can loop over array in random order</li>
+  </ul>
+</section>
+
+
+<section data-background="#AFDCFB" id="class">
+  <h2>Class</h2>
+  <p class="fragment"><strong>Custom</strong> type of object</p>
+  <p class="fragment">Has its own <strong>functions</strong> and <strong>properties</strong></p>
+  <pre class="fragment highlight javascript current-display" contenteditable>const myObject = new Object();</pre>
+  <pre class="fragment highlight javascript current-display" contenteditable>const myArray = new Array();</pre>
+  <pre class="fragment highlight javascript" contenteditable>const myCustomObject = new CustomObject();
+<span class="fragment">myCustomObject.exampleFunction();</span>
+<span class="fragment">myCustomObject.exampleProperty = 'testing';</span>
+<span class="fragment">console.log( myCustomObject.exampleProperty );</span><span class="fragment"> // 'testing'</span></pre>
+  <pre class="fragment highlight javascript" contenteditable>class CustomObject {
+  <span class="fragment">exampleFunction() {
+    <span class="fragment">this.exampleProperty = 'testing';</span>
+  }</span>
+  <span class="fragment">anotherExampleFunction() {
+    this.exampleFunction();
+  }</span>
+}</pre>
+</section>
+
+<section data-background="#AFDCFB" id="class-message">
+  <pre class="highlight javascript" contenteditable>
+class Message {
+  <span class="fragment">getContent() {
+    <span class="fragment">return 'Hello, I am a message';</span>
+  }</span>
+}
+
+<span class="fragment">const myMessage = new Message();</span>
+
+<span class="fragment">console.log( myMessage.getContent() ); <span class="fragment">// Hello, I am a message</span></span></pre>
+  <div class="fragment" style="position: relative; top: -50px;">
+    <img src="images/best-practise-bear.png" class="inline" width="100" style="position: relative; top: 45px; left: -10px" />
+    Class names should be UpperCamelCase
+  </div>
+</section>
+
+
+<section data-background="#AFDCFB" id="class-constructor-2">
+  <p>Construtors</p>
+  <pre class="fragment highlight javascript" contenteditable>
+class Message {
+  constructor(content) {
+    this.timestamp = new Date();
+    this.content = content;
+  }
+}</pre>
+  <pre class="fragment highlight javascript" contenteditable>
+const myTestMessage = new Message('Hello, this is a test message');
+<span class="fragment">const myErrorMessage = new Message('Something went wrong!');</span></pre>
+</section>
+
+<section data-background="#93C0E7" id="class-extends">
+  <h2>Sub classing</h2>
+  <p class="fragment">Allows a class to inherit everything from another class</p>
+  <pre class="fragment highlight javascript" contenteditable>
+class DebugMessage extends Message {
+  // Empty
+}
+
+<span class="fragment">class ErrorMessage extends Message {
+  // Empty
+}</span></pre>
+  <pre class="fragment highlight javascript" contenteditable>
+const myDebugMessage = new DebugMessage('I am a debug message');
+<span class="fragment">const myErrorMessage = new ErrorMessage('I am an error message');</span></pre>
+  <p class="fragment">Everything still works!</p>
+</section>
+
+
+<section data-background="#D4F1FF" id="arrow-functions">
+  <h2>Arrow functions</h2>
+  <p class="fragment">New syntax to easily create <strong>anonymous functions</strong></p>
+  <pre class="fragment highlight javascript" contenteditable>
+// ES5
+const debugMessages = messages.filter(function(message) {
+  return message.priority === 1;
+});</pre>
+  <pre class="fragment highlight javascript" contenteditable>
+// ES6
+const debugMessages = messages.filter((message) => {
+  return message.priority === 1;
+});</pre>
+</section>
+
+<section data-background="#D4F1FF" id="arrow-functions-2">
+  <pre class="highlight javascript" contenteditable>
+const debugMessages = messages.filter((message) => {
+  return message.priority === 1;
+});</pre>
+  <ul>
+    <li class="fragment">
+        If the anonymous function is just 1 single line
+      <ul>
+        <li class="fragment">The <strong>{</strong> and <strong>}</strong> can be removed</li>
+        <li class="fragment">The statement is automatically returned</li>
+      </ul>
+    </li>
+  </ul>
+  <pre class="fragment highlight javascript" contenteditable style="font-size: 50%">
+const debugMessages = messages.filter((message) => message.priority === 1);</pre>
+  <ul>
+    <li class="fragment">
+      If the anonymous function has just 1 parameter
+      <ul>
+        <li class="fragment">The <strong>(</strong> and <strong>)</strong> can be removed</li>
+      </ul>
+    </li>
+  </ul>
+  <pre class="fragment highlight javascript" contenteditable style="font-size: 50%">
+const debugMessages = messages.filter(message => message.priority === 1);</pre>
+</section>
+
+<section data-background="#AFDCFB" id="arrow-functions-so-what">
+  <div class="tiles">
+    <div class="tile">
+      <pre class="fragment highlight javascript" contenteditable style="font-size: 50%">
+// ES5 anonymous function
+
+function(param1, param2) {
+  // ...
+}
+</pre>
+    </div>
+    <div class="tile">
+      <pre class="fragment highlight javascript" contenteditable style="font-size: 50%">
+// ES6 arrow function
+
+(param1, param2) => {
+  // ...
+}
+</pre>
+    </div>
+  </div>
+</section>
+
+
+
+<section data-background="#93C0E7" data-transition="fade" id="modules">
+  <pre class="highlight javascript" contenteditable><span class="fragment">
+// Globals
+var myModule = window.myModule;
+</span><span class="fragment">
+// AMD / RequireJS
+define(['myModule'], function(myModule) { });
+</span><span class="fragment">
+// CommonJS / npm
+module.exports = myModule;
+var myModule = require('myModule');
+</span><span style="visibility: hidden">
+// ES6
+export myModule;
+import { myModule } from 'myModule';</span></pre>
+  <aside class="notes">
+    <ul>
+      <li>No decisions to make</li>
+      <li>It's baked right into Javascript</li>
+    </ul>
+  </aside>
+</section>
+
+<section data-background="#93C0E7" data-transition="fade" id="modules-2">
+  <pre class="highlight javascript" contenteditable><span class="strike">
+// Globals
+var myModule = window.myModule;
+
+// AMD / RequireJS
+define(['myModule'], function(myModule) {});
+
+// CommonJS / npm
+module.exports = myModule;
+var myModule = require('myModule');</span>
+<span class="fragment">
+// ES6 modules
+export myModule;
+import { myModule } from 'myModule';</span></pre>
+</section>
+
+<section data-background="#93C0E7" id="module-3">
+  <h2><em>#24.</em> Modules</h2>
+  <pre class="highlight javascript" contenteditable>
+// message.js
+
+export class Message {
+  // ...
+}</pre>
+  <pre class="fragment highlight javascript" contenteditable>
+// main.js
+
+import { Message } from './message.js';
+
+const myMessage = new Message();</pre>
+</section>
+
+<section data-background="#93C0E7" id="modules-export-multiple">
+  <h3>Multiple exports</h3>
+  <pre class="fragment highlight javascript" contenteditable>
+// message-utils.js
+
+<span class="fragment">export function displayMessage(message) {
+  // ...
+}</span>
+
+<span class="fragment">export function removeMessage(message) {
+  // ...
+}</span></pre>
+</section>
+
+<section data-background="#93C0E7" id="modules-import-multiple">
+  <h3>Multiple imports</h3>
+  <br />
+  <pre class="highlight javascript" contenteditable>
+import { displayMessage, removeMessage } from './message-utils.js';</pre>
+</section>
+
+<section data-background="#93C0E7" id="modules-import-selective">
+  <h3>Selective imports</h3>
+  <br />
+  <pre class="highlight javascript" contenteditable>
+import { removeMessage } from './message-utils.js';</pre>
+</section>
+
+<section data-background="#93C0E7" id="modules-multiple-all">
+  <h3>Import all</h3>
+  <br />
+  <pre class="highlight javascript" contenteditable>
+import * as MessageUtils from './message-utils.js';
+
+<span class="fragment">MessageUtils.displayMessage();
+MessageUtils.removeMessage();</span></pre>
+</section>
+
+<section data-background="#93C0E7" id="modules-alias">
+  <pre class="highlight javascript" contenteditable>
+// /vendor/message.js
+
+export class Message {}</pre>
+  <pre class="fragment highlight javascript" contenteditable>
+// /app/message.js
+
+export class Message {}</pre>
+</section>
+
+<section data-background="#93C0E7" id="modules-alias-2">
+  <h3>Named imports</h3>
+  <br />
+  <pre class="fragment highlight javascript" contenteditable>
+import { Message as MessageVendor } from '/vendor/message.js';
+<span class="fragment">import { Message as MessageApp } from '/app/message.js';</span></pre>
+</section>
+
+<section data-background="#93C0E7" id="modules-default">
+  <h3>Default exports</h3>
+  <p class="fragment">One per module</p>
+  <pre class="fragment highlight javascript" contenteditable>
+// message.js
+
+export default class Message {}</pre>
+  <pre class="fragment highlight javascript" contenteditable>
+// main.js
+
+import NameItWhateverYouLike from './message.js'</pre>
+</section>
+
+<section data-background="#D4F1FF" id="modules-bundling">
+  <h2>The ES6 Module Problem</h2>
+  <p class="fragment">ES6 only specifies a standard for<br />the <strong>import</strong> & <strong>export</strong> syntax</p>
+  <p class="fragment">ES6 <strong>does not</strong> specify a standard for <strong>loading</strong> files</p>
+  <pre class="fragment highlight javascript" contenteditable style="font-size: 51%">
+import { nope } from '../browser/does/not/know/how/to/load/this/file.js';
+</pre>
+  <p class="fragment"><strong>Solution</strong></p>
+  <ol>
+    <li class="fragment">
+      Use a bundling tool that understands ES6 modules
+      <ul>
+        <li class="fragment">jspm</li>
+      </ul>
+    </li>
+    <li class="fragment">
+      Setup bundling tool to understand ES6 modules
+      <ul>
+        <li class="fragment">
+          Browserify<span class="fragment"> - Babelify</span>
+        </li>
+        <li class="fragment">
+          Webpack<span class="fragment"> - Babel loader</span>
+        </li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+
+<!-- END SLIDES -->
+
+</div>
+</div>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+
+  // Full list of configuration options available at:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: false,
+    progress: true,
+    history: true,
+    center: true,
+    previewLinks: true,
+
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+    // Optional reveal.js plugins
+    dependencies: [
+      //{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      //{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      //{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+      //{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      {
+        src: 'plugin/highlight/highlight.js',
+        async: true,
+        callback: function() {
+          hljs.configure({tabReplace: '  '});
+          [].forEach.call(
+            document.querySelectorAll( '.highlight' ),
+            function(v, i) {
+              hljs.highlightBlock(v);
+            }
+          );
+        }
+      },
+
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+    ]
+  });
+
+</script>
+
+</body>
+</html>
